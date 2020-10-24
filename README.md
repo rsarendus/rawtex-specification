@@ -50,14 +50,14 @@ Custom image format.
     </tr>
     <tr>
         <td colspan="8">RFU</td>
-        <td colspan="4">block size</td>
-        <td colspan="4">block count size</td>
+        <td colspan="4">block size <sup>s</sup></td>
+        <td colspan="4">block count size <sup>s</sup></td>
     </tr>
     <tr>
         <td rowspan="1">9</td>
         <td rowspan="1">1</td>
         <td rowspan="1">uint8</td>
-        <td colspan="16"><b>Image format indicator size</b></td>
+        <td colspan="16"><b>Image format indicator size <sup>m</sup></b></td>
     </tr>
     <tr>
         <td rowspan="3">10</td>
@@ -85,16 +85,16 @@ Custom image format.
     </tr>
     <tr>
         <td>width specified</td>
-        <td colspan="2">width size</td>
+        <td colspan="2">width size <sup>s</sup></td>
         <td>height specified</td>
-        <td colspan="2">height size</td>
+        <td colspan="2">height size <sup>s</sup></td>
         <td>depth specified</td>
-        <td colspan="2">depth size</td>
+        <td colspan="2">depth size <sup>s</sup></td>
         <td>layers specified</td>
-        <td colspan="2">layers size</td>
+        <td colspan="2">layers size <sup>s</sup></td>
         <td>mipmapped</td>
         <td>compressed</td>
-        <td colspan="2">compression length size</td>
+        <td colspan="2">compression length size <sup>s</sup></td>
     </tr>
     <tr>
         <td>12</td>
@@ -106,53 +106,109 @@ Custom image format.
         <td>?</td>
         <td>1/2/4/8</td>
         <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Block count</b></td>
+        <td colspan="16"><b>Block count <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1/2/4/8</td>
+        <td rowspan="3">uint8/16/32/64</td>
+        <td colspan="16"><b>Image width <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">(width specified) == 0</th>
+        <th colspan="8">(width specified) == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>1</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1/2/4/8</td>
+        <td rowspan="3">uint8/16/32/64</td>
+        <td colspan="16"><b>Image height <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">(height specified) == 0</th>
+        <th colspan="8">(height specified) == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>1</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1/2/4/8</td>
+        <td rowspan="3">uint8/16/32/64</td>
+        <td colspan="16"><b>Image depth <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">(depth specified) == 0</th>
+        <th colspan="8">(depth specified) == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>1</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1/2/4/8</td>
+        <td rowspan="3">uint8/16/32/64</td>
+        <td colspan="16"><b>Number of layers <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">(layers specified) == 0</th>
+        <th colspan="8">(layers specified) == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>1</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1</td>
+        <td rowspan="3">uint8</td>
+        <td colspan="16"><b>Number of mipmap levels <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">mipmapped == 0</th>
+        <th colspan="8">mipmapped == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>1</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1/2/4/8</td>
+        <td rowspan="3">uint8/16/32/64</td>
+        <td colspan="16"><b>Compressed data length <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">compressed == 0</th>
+        <th colspan="8">compressed == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8">&ltno compression&gt</td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
+    </tr>
+    <tr>
+        <td rowspan="3">?</td>
+        <td rowspan="3">0/1</td>
+        <td rowspan="3">uint8</td>
+        <td colspan="16"><b>Compression format indicator string length <sup>m</sup></b></td>
+    </tr>
+    <tr>
+        <th colspan="8">compressed == 0</th>
+        <th colspan="8">compressed == 1</th>
+    </tr>
+    <tr>
+        <td colspan="8"><code>0</code></td>
+        <td colspan="8"><code><i>value</i> + 1</code></td>
     </tr>
     <tr>
         <td>?</td>
-        <td>0/1/2/4/8</td>
-        <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Image width</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1/2/4/8</td>
-        <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Image height</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1/2/4/8</td>
-        <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Image depth</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1/2/4/8</td>
-        <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Number of layers</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1</td>
-        <td>uint8</td>
-        <td colspan="16"><b>Number of mipmap levels</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1/2/4/8</td>
-        <td>uint8/16/32/64</td>
-        <td colspan="16"><b>Compression length</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>0/1</td>
-        <td>uint8</td>
-        <td colspan="16"><b>Compression format indicator string length</b></td>
-    </tr>
-    <tr>
-        <td>?</td>
-        <td>?</td>
+        <td>0-256</td>
         <td>utf-8 string</td>
         <td colspan="16"><b>UTF-8 encoded compression format indicator string</b></td>
     </tr>
@@ -163,6 +219,10 @@ Custom image format.
         <td colspan="16"><b>Binary image data</b></td>
     </tr>
 </table>
+
+**<sup>m</sup>** a magnitude (length, count, extent), calculated as <code>*value* + 1</code>
+
+**<sup>s</sup>** size of a value, type or block in octets, calculated as <code>2<sup>*value*</sup></code>; in case of specifying a sized type, e.g. **uint*N*** or **packed*N***, then <code>*N* = 2<sup>*value*</sup> * 8</code>
 
 
 ### [DRAFT] Version X.X

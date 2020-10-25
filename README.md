@@ -165,7 +165,7 @@ Custom image format.
 </table>
 
 **Actual image data block size:**
-<pre>1 + (<i>block size</i>)</pre>
+<pre>2<sup>(<i>block size</i>)</sup></pre>
 
 **Actual image data block count:**
 <pre>1 + (<i>block count</i>)</pre>

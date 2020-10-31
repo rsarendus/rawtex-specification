@@ -1,7 +1,8 @@
 # [DRAFT] RAWTEX Specification
 
-A binary format for storing image data flexibly with minimal load-time overhead (e.g. loading image data directly to graphics memory).
-The format comes in two flavors: big-endian and little-endian.
+A binary format for storing image data flexibly with minimal load-time overhead.
+
+The format comes in two flavors: big-endian and little-endian. This enables to serialize image data in an optimal format for different platforms. However, implementations are encouraged to be able to handle non-native endianness and/or support conversion to/from desired endianness, unless doing so would be unreasonable or impractical.
 
 
 ## [DRAFT] RAWTEX Header
@@ -152,7 +153,7 @@ Custom image format.
     </tr>
     <tr>
         <td>?</td>
-        <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&plus;&nbsp;(<i>compression&nbsp;format&nbsp;indicator&nbsp;string&nbsp;length</i>)</sup><br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+        <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&plus;&nbsp;(<i>compression&nbsp;format&nbsp;indicator&nbsp;string&nbsp;length</i>)<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;0</td>
         <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;utf-8 string<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;&empty;</td>
         <td colspan="16"><b>UTF-8 encoded compression format indicator string</b></td>
     </tr>
@@ -340,7 +341,7 @@ Custom pixel format.
     </tr>
     <tr>
         <td>?</td>
-        <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&plus;&nbsp;(<i>compression&nbsp;format&nbsp;indicator&nbsp;string&nbsp;length</i>)</sup><br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+        <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&plus;&nbsp;(<i>compression&nbsp;format&nbsp;indicator&nbsp;string&nbsp;length</i>)<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;0</td>
         <td>if&nbsp;<i>compressed</i>&nbsp;then:<br>&nbsp;&nbsp;&nbsp;&nbsp;utf-8 string<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;&empty;</td>
         <td colspan="16"><b>UTF-8 encoded compression format indicator string</b></td>
     </tr>
@@ -405,7 +406,7 @@ else:
 <pre>
 &puncsp;<sub><i>n</i></sub>
 &ensp;&sum;&emsp;<i>opp</i> &times; <i>width<sub>i</sub></i> &times; <i>height<sub>i</sub></i> &times; <i>depth<sub>i</sub></i> &times; <i>layers</i>
-&thinsp;<sup><i>i</i>=0</sup>
+<sup><i>i</i>=0</sup>
 </pre>
 Where:
 * ***n*** = <code>(*actual number of mipmap levels*) &minus; 1</code>

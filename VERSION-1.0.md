@@ -21,9 +21,9 @@ RAWTEX binary format header is specified in [RAWTEX Specification: RAWTEX Header
 | ?      | ?       | ?        | [**Image data**](#image-data) |
 
 
-### Image extents and compression flags
+### Image extents flags
 
-The layout of **image extents and compression flags**, packed into two consecutive octets, forming a 16-bit block:
+The layout of **image extents flags**, packed into two consecutive octets, forming a 16-bit block:
 
 <table>
     <tr>
